@@ -1,0 +1,104 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Container for the parameters to the <code><a>DefineSuggester</a></code> operation. Specifies the name of the domain you want to update and the suggester configuration.",
+            "properties": {
+                "DomainName": {
+                    "description": "A string that represents the name of a domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).",
+                    "maxLength": 28,
+                    "minLength": 3,
+                    "pattern": "[a-z][a-z0-9\\-]+",
+                    "type": "string"
+                },
+                "Suggester": {
+                    "description": "Configuration information for a search suggester. Each suggester has a unique name and specifies the text field you want to use for suggestions. The following options can be configured for a suggester: <code>FuzzyMatching</code>, <code>SortExpression</code>. ",
+                    "properties": {
+                        "DocumentSuggesterOptions": {
+                            "description": "Options for a search suggester.",
+                            "properties": {
+                                "FuzzyMatching": {
+                                    "description": "The level of fuzziness allowed when suggesting matches for a string: <code>none</code>, <code>low</code>, or <code>high</code>. With none, the specified string is treated as an exact prefix. With low, suggestions must differ from the specified string by no more than one character. With high, suggestions can differ by up to two characters. The default is none. ",
+                                    "enum": [
+                                        "none",
+                                        "low",
+                                        "high"
+                                    ],
+                                    "type": "string"
+                                },
+                                "SortExpression": {
+                                    "description": "An expression that computes a score for each suggestion to control how they are sorted. The scores are rounded to the nearest integer, with a floor of 0 and a ceiling of 2^31-1. A document's relevance score is not computed for suggestions, so sort expressions cannot reference the <code>_score</code> value. To sort suggestions using a numeric field or existing expression, simply specify the name of the field or expression. If no expression is configured for the suggester, the suggestions are sorted with the closest matches listed first.",
+                                    "type": "string"
+                                },
+                                "SourceField": {
+                                    "description": "The name of the index field you want to use for suggestions. ",
+                                    "maxLength": 64,
+                                    "minLength": 1,
+                                    "pattern": "[a-z][a-z0-9_]*",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "SourceField"
+                            ],
+                            "type": "object"
+                        },
+                        "SuggesterName": {
+                            "description": "Names must begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore).",
+                            "maxLength": 64,
+                            "minLength": 1,
+                            "pattern": "[a-z][a-z0-9_]*",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "SuggesterName",
+                        "DocumentSuggesterOptions"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "DomainName",
+                "Suggester"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
