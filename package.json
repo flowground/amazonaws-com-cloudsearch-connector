@@ -1,7 +1,7 @@
 {
     "name": "amazonaws-com-cloudsearch-connector",
     "version": "2013.0.0",
-    "description": "<fullname>Amazon CloudSearch Configuration Service</fullname> <p>You use the Amazon CloudSearch configuration service to create, configure, and manage search domains. Configuration service requests are submitted using the AWS Query protocol. AWS Query requests are HTTP or HTTPS requests submitted via HTTP GET or POST with a query parameter named Action.</p> <p>The endpoint for configuration service requests is region-specific: cloudsearch.<i>region</i>.amazonaws.com. For example, cloudsearch.us-east-1.amazonaws.com. For a current list of supported regions and endpoints, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region\" target=\"_blank\">Regions and Endpoints</a>.</p>",
+    "description": "Amazon CloudSearch Configuration Service You use the Amazon CloudSearch\nconfiguration service to create, configure, and manage search domains.\nConfiguration service requests are submitted using the AWS Query protocol. AWS\nQuery requests are HTTP or HTTPS requests submitted via HTTP GET or POST with a\nquery parameter named Action.\n\nThe endpoint for configuration service requests is region-specific: cloudsearch.\nregion.amazonaws.com. For example, cloudsearch.us-east-1.amazonaws.com. For a\ncurrent list of supported regions and endpoints, see Regions and Endpoints\n[http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region].",
     "main": "component.json",
     "dependencies": {
         "elasticio-node": "0.0.9",
